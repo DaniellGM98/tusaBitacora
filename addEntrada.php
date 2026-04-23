@@ -110,16 +110,16 @@
     $ql->bindParam(':observaciones', $observaciones);
 
     if ($ql->execute()) {
-        if (!empty($fecha_salida)) {
-            $updateSQL = "UPDATE registros_Patio 
-                          SET fecha_salida = :fecha_salida 
-                          WHERE VIN = :vin 
-                            AND (fecha_salida IS NULL OR fecha_salida = '')";
-            $updateStmt = $conn->prepare($updateSQL);
-            $updateStmt->bindParam(':fecha_salida', $fecha_salida);
-            $updateStmt->bindParam(':vin', $VIN);
-            $updateStmt->execute();
-        }
+        // if (!empty($fecha_salida)) {
+        //     $updateSQL = "UPDATE registros_Patio 
+        //                   SET fecha_salida = :fecha_salida 
+        //                   WHERE VIN = :vin 
+        //                     AND (fecha_salida IS NULL OR fecha_salida = '')";
+        //     $updateStmt = $conn->prepare($updateSQL);
+        //     $updateStmt->bindParam(':fecha_salida', $fecha_salida);
+        //     $updateStmt->bindParam(':vin', $VIN);
+        //     $updateStmt->execute();
+        // }
         echo json_encode(["success" => true, "message" => "Registro insertado"]);
     } else {
         $errorInfo = $ql->errorInfo();
